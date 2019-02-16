@@ -106,16 +106,22 @@
     </ion-row> -->
     <ion-row>
       <ion-col>
-        <strong>Vehiculos Disponibles</strong><ion-icon name="trash" (click)="removeKey('offices')"></ion-icon>
+        <strong>Vehiculos Disponibles</strong><ion-icon (click)="removeKey('vehiculo')" name="trash" ></ion-icon>
             <ion-card *ngFor="let item of data; let i = index">
                 <ion-card-header>
                     <ion-card-title>Vehiculo {{i+1}}
                     </ion-card-title>
                 </ion-card-header>
               <ion-card-content>
-                <p><strong>Country</strong>: {{item.descripcion}}</p>
-                <p><strong>Address</strong>: {{item.chasis}}</p>
-                <p><strong>Phone</strong>: {{item.marca}}</p>
+                <p><strong>Descripcion</strong>: {{item.descripcion}}</p>
+                <p><strong>Chasis</strong>: {{item.chasis}}</p>
+                <p><strong>Motor</strong>: {{item.motor}}</p>
+                <p><strong>Placa</strong>: {{item.placa}}</p>
+                <p><strong>Tipo</strong>: {{item.tipo}}</p>
+                <p><strong>Marca</strong>: {{item.marca}}</p>
+                <p><strong>Modelo</strong>: {{item.modelo}}</p>
+                <p><strong>Combustible</strong>: {{item.combustible}}</p>
+                <p><strong>Estado</strong>: {{item.estado}}</p>
               </ion-card-content>
             </ion-card>
       </ion-col>
