@@ -1,0 +1,67 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Marcas
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+ 
+<ion-content padding>
+  Agregar Marca
+ 
+ 
+  <ion-grid>
+    <ion-row>
+      <ion-col size="9">
+          <ion-item>
+              <ion-label position="fixed">Descripcion</ion-label>:
+              <ion-input [(ngModel)]="marca.descripcion"></ion-input>
+            </ion-item>
+        
+      </ion-col>
+    </ion-row>
+    <ion-row>
+    
+                      <ion-col size="9">
+                          <ion-item>
+                              <ion-label position="fixed">estado</ion-label>:
+                              <ion-checkbox [(ngModel)]="marca.estado"></ion-checkbox>
+                            </ion-item>
+                        
+                      </ion-col>
+                    </ion-row>
+                    <ion-button (click)="guardar()">Guardar</ion-button>
+
+    <!-- <ion-row>
+      <ion-col size="3">
+        <strong>Integer</strong>
+      </ion-col>
+      <ion-col>:
+        {{data.phone}}<ion-icon name="trash" (click)="removeKey('phone')"></ion-icon>
+      </ion-col>
+    </ion-row> -->
+    <ion-row>
+      <ion-col>
+        <strong>Marcas Disponibles</strong><ion-icon (click)="removeKey('vehiculo')" name="trash" ></ion-icon>
+            <ion-card *ngFor="let item of data; let i = index">
+                <ion-card-header>
+                    <ion-card-title>Marca {{item.id}}
+                    </ion-card-title>
+                </ion-card-header>
+              <ion-card-content>
+                <p><strong>Descripcion</strong>: {{item.descripcion}}</p>
+                <p><strong>Estado</strong>: {{item.estado}}</p>
+              </ion-card-content>
+            </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+ 
+ 
+ <!--  <ion-button size="small" (click)="driverUsed()">Get Storage Driver Used</ion-button>
+  <ion-button size="small" (click)="traverseKeys()">Loop through All Stored Keys</ion-button>
+  <ion-button size="small" (click)="listKeys()">Get Stored Keys</ion-button>
+  <ion-button size="small" (click)="getKeyLength()">Get Length Stored Keys</ion-button> -->
+ 
+ 
+</ion-content>

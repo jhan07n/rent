@@ -28,30 +28,92 @@ export class HomePage {
   constructor(
     private storage: Storage
   ) {
-  
-   
-this.id=1;
+    /* Usar solo en caso de emergencias XDD
+    
+    this.storage.clear() 
+    
+    */
+
+    this.id=1;
     this.storage.forEach((value: any, key: any, iterationNumber: Number) => {
-      let k:Number;
+      
       this.storage.length().then((keysLength: Number) => {
         console.log("Total Keys " + keysLength);
-        k=keysLength
-        console.log(k);
-        for(let i :any =0; i <= k; i++){
+        for(let i :any =0; i <= keysLength; i++){
           /* console.log("esto es for " + i + " Esto es k "+k + " Estoy es key"+ key) */
-          if (key==i){
+          if (key==="v"+i){
             this.getValue(i);
-            this.id=i+1
-            this.storage.get(i).then((val=>{
+           
+            this.storage.get("v"+i).then((val=>{
               this.data.push(val)
+              this.id=i+1
             }))
-            
-           }}})})}
+           }
+          }
+          })
+        })
+      }
+
+ // set a key/value
+ setValue(key: string, value: any) {
     
+  this.storage.set("v"+key, value).then((response) => {
+    console.log('set v' + key + ' ', response);
+    this.id += 1
+    //get Value Saved in key
+    this.getValue(key);
+
+  }).catch((error) => {
+    console.log('set error for ' + key + ' ', error);
+  });
+}
+
+// get a key/value pair
+getValue(key: any) {
+  this.storage.get("v"+key).then((valor => {console.table(valor)
+  
+  }))
+
+}
+guardar(){
+  
+  this.vehiculo.id=this.id;
+ this.setValue(this.id,this.vehiculo)
+ this.data.push(this.vehiculo)
+ }
+ }
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
  
-  
-  
- getid(){
+ /* getid(){
    this.id=1;
   this.storage.forEach((value: any, key: any, iterationNumber: Number) => {
     let k:Number;
@@ -72,31 +134,10 @@ this.id=1;
    
     
   })
- }
+ } */
  
-  // set a key/value
-  setValue(key: string, value: any) {
-    
-    this.storage.set(key, value).then((response) => {
-      console.log('set' + key + ' ', response);
  
-      //get Value Saved in key
-      this.getValue(key);
- 
-    }).catch((error) => {
-      console.log('set error for ' + key + ' ', error);
-    });
-  }
- 
-  // get a key/value pair
-  getValue(key: any) {
-    this.storage.get(key).then((valor => {console.table(valor)
-      /* this.data[key]="",
-      this.data[key]=valor */
-    }))
-  
-  }
- 
+ /* 
   // Remove a key/value pair
   removeKey(key: string) {
     this.storage.remove(key).then(() => {
@@ -105,7 +146,7 @@ this.id=1;
     }).catch((error) => {
       console.log('removed error for ' + key + '', error);
     });
-  }
+  } 
  
   //Get Current Storage Engine Used
   driverUsed() {
@@ -142,14 +183,8 @@ this.id=1;
     });
     return k;
   }
- 
-ver(){
-  
- this.vehiculo.id=this.id;
-this.setValue(this.id,this.vehiculo)
-this.data.push(this.vehiculo)
-}
-}
+  */
+
 
 
 

@@ -1,5 +1,5 @@
 
-<ion-content padding >
+<ion-content >
 <div style="background-color: #3f3f3f;
 height: 100%;">
 
@@ -22,7 +22,7 @@ right: 0;">
       <ion-label position="stacked">Contraseña</ion-label>
       <ion-input type="password"></ion-input>
     </ion-item>
-    <ion-button expand="block" fill="outline" color="primary" routerLink="/home" routerDirection="root">Iniciar Sesión</ion-button>
+    <ion-button expand="block" fill="outline" color="primary" [routerDirection]="root" routerLink="/home" >Iniciar Sesión</ion-button>
   </ion-card>
 
 </ion-col>

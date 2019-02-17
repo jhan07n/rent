@@ -1,0 +1,106 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+     Empleados
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+ 
+<ion-content padding>
+  Agregar Empleado
+ 
+ 
+  <ion-grid>
+    <ion-row>
+        <ion-col size="9">
+            <ion-item>
+                <ion-label position="fixed">Nombre</ion-label>:
+                <ion-input [(ngModel)]="usuario.nombre"></ion-input>
+              </ion-item>
+          
+        </ion-col>
+      </ion-row>
+      <ion-row>
+          <ion-col size="9">
+              <ion-item>
+                  <ion-label position="fixed">Cédula</ion-label>:
+                  <ion-input [(ngModel)]="usuario.cedula"></ion-input>
+                </ion-item>
+            
+          </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col size="9">
+                <ion-item>
+                    <ion-label position="fixed">Tanda Laboral</ion-label>:
+                    <ion-input [(ngModel)]="usuario.tanda"></ion-input>
+                  </ion-item>
+              
+            </ion-col>
+          </ion-row>
+          <ion-row>
+              <ion-col size="9">
+                  <ion-item>
+                      <ion-label position="fixed">Comision %</ion-label>:
+                      <ion-input value="%" [(ngModel)]="usuario.comision"></ion-input>
+                    </ion-item>
+                
+              </ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col size="9">
+                    <ion-item>
+                        <ion-label position="fixed">Fecha Ingreso</ion-label>:
+                        <ion-datetime display-format="MM/YYYY" picker-format="MMMM YYYY" [(ngModel)]="usuario.ingreso"></ion-datetime>
+                      </ion-item>
+                  
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                      <ion-col size="9">
+                          <ion-item>
+                              <ion-label position="fixed">estado</ion-label>:
+                              <ion-checkbox [(ngModel)]="usuario.estado"></ion-checkbox>
+                            </ion-item>
+                        
+                      </ion-col>
+                    </ion-row>
+                    <ion-button (click)="guardar()">Guardar</ion-button>
+
+    <!-- <ion-row>
+      <ion-col size="3">
+        <strong>Integer</strong>
+      </ion-col>
+      <ion-col>:
+        {{data.phone}}<ion-icon name="trash" (click)="removeKey('phone')"></ion-icon>
+      </ion-col>
+    </ion-row> -->
+    <ion-row>
+      <ion-col>
+        <strong>Lista de Empleados</strong><ion-icon name="trash" ></ion-icon>
+            <ion-card *ngFor="let item of data; let i = index">
+                <ion-card-header>
+                    <ion-card-title>Usuario {{item.id}}
+                    </ion-card-title>
+                </ion-card-header>
+              <ion-card-content>
+                <p><strong>Nombre</strong>: {{item.nombre}}</p>
+                <p><strong>Cédula</strong>: {{item.cedula}}</p>
+                <p><strong>Tanda Laboral</strong>: {{item.tanda}}</p>
+                <p><strong>Porcentaje Comision</strong>: {{item.comision}}</p>
+                <p><strong>Fecha Ingreso</strong>: {{item.ingreso}}</p>
+                <p><strong>Estado</strong>: {{item.estado}}</p>
+              </ion-card-content>
+            </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+ 
+ 
+ <!--  <ion-button size="small" (click)="driverUsed()">Get Storage Driver Used</ion-button>
+  <ion-button size="small" (click)="traverseKeys()">Loop through All Stored Keys</ion-button>
+  <ion-button size="small" (click)="listKeys()">Get Stored Keys</ion-button>
+  <ion-button size="small" (click)="getKeyLength()">Get Length Stored Keys</ion-button> -->
+ 
+ 
+</ion-content>
