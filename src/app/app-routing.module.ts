@@ -20,7 +20,9 @@ const routes: Routes = [
   { path: 'marcas', loadChildren: './marcas/marcas.module#MarcasPageModule' },
   { path: 'cliente', loadChildren: './cliente/cliente.module#ClientePageModule' },
   { path: 'inspeccion', loadChildren: './inspeccion/inspeccion.module#InspeccionPageModule' },
-  { path: 'renta', loadChildren: './renta/renta.module#RentaPageModule' }
+  { path: 'renta', loadChildren: './renta/renta.module#RentaPageModule' },
+  { path: 'tipo-vehiculo', loadChildren: './tipo-vehiculo/tipo-vehiculo.module#TipoVehiculoPageModule' },
+  { path: 'tipo-combustible', loadChildren: './tipo-combustible/tipo-combustible.module#TipoCombustiblePageModule' }
 ];
 
 @NgModule({

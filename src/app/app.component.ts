@@ -29,6 +29,21 @@ export class AppComponent {
       title: 'Usuarios',
       url: '/usuarios',
       icon: 'people'
+    },
+    {
+      title: 'Clientes',
+      url: '/cliente',
+      icon: 'people'
+    },
+    {
+      title: 'Inspeccion',
+      url: '/inspeccion',
+      icon: 'people'
+    },
+    {
+      title: 'Renta Y devolucion',
+      url: '/renta',
+      icon: 'people'
     }
   ];
 

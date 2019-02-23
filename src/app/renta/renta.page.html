@@ -1,9 +1,135 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>renta</ion-title>
+    <ion-title>
+     Renta y Devolución
+    </ion-title>
   </ion-toolbar>
 </ion-header>
-
+ 
 <ion-content padding>
+  Renta y Devolución
+ 
+ 
+  <ion-grid>
+    
+    <ion-row>
+        <ion-col size="9">
+            <ion-item>
+                <ion-label position="fixed">Empleado</ion-label>:
+                <ion-input [(ngModel)]="renta.empleado"></ion-input>
+              </ion-item>
+          
+        </ion-col>
+      </ion-row>
+      <ion-row>
+          <ion-col size="9">
+              <ion-item>
+                  <ion-label position="fixed">Vehiculo</ion-label>:
+                  <ion-input [(ngModel)]="renta.vehiculo"></ion-input>
+                </ion-item>
+            
+          </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col size="9">
+                <ion-item>
+                    <ion-label position="fixed">Cliente</ion-label>:
+                    <ion-input [(ngModel)]="renta.cliente"></ion-input>
+                  </ion-item>
+              
+            </ion-col>
+          </ion-row>
+          <ion-row>
+              <ion-col size="9">
+                  <ion-item>
+                      <ion-label position="fixed">Fecha de renta</ion-label>:
+                      <ion-datetime display-format="MM/YYYY" picker-format="MMMM YYYY" [(ngModel)]="renta.fechai"></ion-datetime>
+                    </ion-item>
+                
+              </ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col size="9">
+                    <ion-item>
+                        <ion-label position="fixed">Fecha Devolución</ion-label>:
+                        <ion-datetime display-format="MM/YYYY" picker-format="MMMM YYYY" [(ngModel)]="renta.fechaf"></ion-datetime>
+                      </ion-item>
+                  
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                  <ion-col size="9">
+                      <ion-item>
+                          <ion-label position="fixed">Monto x dia</ion-label>:
+                          <ion-input [(ngModel)]="renta.monto"></ion-input>
+                        </ion-item>
+                    
+                  </ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col size="9">
+                        <ion-item>
+                            <ion-label position="fixed">Cantidad de Dia</ion-label>:
+                            <ion-input [(ngModel)]="renta.dias"></ion-input>
+                          </ion-item>
+                      
+                    </ion-col>
+                  </ion-row> <ion-row>
+                      <ion-col size="9">
+                          <ion-item>
+                              <ion-label position="fixed">Comentario</ion-label>:
+                              <ion-input [(ngModel)]="renta.comentario"></ion-input>
+                            </ion-item>
+                        
+                      </ion-col>
+                    </ion-row><ion-row>
+                      <ion-col size="9">
+                          <ion-item>
+                              <ion-label position="fixed">Estado</ion-label>:
+                              <ion-checkbox [(ngModel)]="renta.estado"></ion-checkbox>
+                            </ion-item>
+                        
+                      </ion-col>
+                    </ion-row>
+                    <ion-button (click)="guardar()">Guardar</ion-button>
 
+    <!-- <ion-row>
+      <ion-col size="3">
+        <strong>Integer</strong>
+      </ion-col>
+      <ion-col>:
+        {{data.phone}}<ion-icon name="trash" (click)="removeKey('phone')"></ion-icon>
+      </ion-col>
+    </ion-row> -->
+    <ion-row>
+      <ion-col>
+        <strong>inspecciones Hechas</strong><ion-icon (click)="removeKey('inspeccion')" name="trash" ></ion-icon>
+            <ion-card *ngFor="let item of data; let i = index">
+                <ion-card-header>
+                    <ion-card-title>inspeccion {{item.id}}
+                    </ion-card-title>
+                </ion-card-header>
+              <ion-card-content>
+                <p><strong>Empleado</strong>: {{item.empleado}}</p>
+                <p><strong>Vehiculo</strong>: {{item.vehiculo}}</p>
+                <p><strong>Id. Cliente</strong>: {{item.cliente}}</p>
+                <p><strong>Fecha de Renta</strong>: {{item.fechai}}</p>
+                <p><strong>Fecha Devolución</strong>: {{item.fechaf}}</p>
+                <p><strong>Monto x Día</strong>: {{item.monto}}</p>
+                <p><strong>Cantidad de Días</strong>: {{item.dias}}</p>
+                <p><strong>Comentario</strong>: {{item.comentario}}</p>
+                <p><strong>Estado</strong>: {{item.estado}}</p>
+              </ion-card-content>
+            </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+ 
+ 
+ <!--  <ion-button size="small" (click)="driverUsed()">Get Storage Driver Used</ion-button>
+  <ion-button size="small" (click)="traverseKeys()">Loop through All Stored Keys</ion-button>
+  <ion-button size="small" (click)="listKeys()">Get Stored Keys</ion-button>
+  <ion-button size="small" (click)="getKeyLength()">Get Length Stored Keys</ion-button> -->
+ 
+ 
 </ion-content>

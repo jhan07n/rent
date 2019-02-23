@@ -1,9 +1,109 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>cliente</ion-title>
+    <ion-title>
+     Cliente
+    </ion-title>
   </ion-toolbar>
 </ion-header>
-
+ 
 <ion-content padding>
+  Agregar Cliente
+ 
+ 
+  <ion-grid>
+    <ion-row>
+        <ion-col size="9">
+            <ion-item>
+                <ion-label position="fixed">Nombre</ion-label>:
+                <ion-input [(ngModel)]="cliente.nombre"></ion-input>
+              </ion-item>
+          
+        </ion-col>
+      </ion-row>
+      <ion-row>
+          <ion-col size="9">
+              <ion-item>
+                  <ion-label position="fixed">Cédula</ion-label>:
+                  <ion-input [(ngModel)]="cliente.cedula"></ion-input>
+                </ion-item>
+            
+          </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col size="9">
+                <ion-item>
+                    <ion-label position="fixed">No. TC</ion-label>:
+                    <ion-input [(ngModel)]="cliente.tarjeta"></ion-input>
+                  </ion-item>
+              
+            </ion-col>
+          </ion-row>
+          <ion-row>
+              <ion-col size="9">
+                  <ion-item>
+                      <ion-label position="fixed">Limite de Cred.</ion-label>:
+                      <ion-input value="RD$ " [(ngModel)]="cliente.credito"></ion-input>
+                    </ion-item>
+                
+              </ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col size="9">
+                    <ion-item>
+                        <ion-label position="fixed">Tipo Persona</ion-label>:
+                        <ion-select  [(ngModel)]="cliente.persona" okText="Okay" cancelText="Dismiss">
+                          <ion-select-option value="Persona Física">Persona Física</ion-select-option>
+                          <ion-select-option value="Persona Jurídica">Persona Jurídica</ion-select-option>
+                        </ion-select>
+                      </ion-item>
+                  
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                      <ion-col size="9">
+                          <ion-item>
+                              <ion-label position="fixed">Estado</ion-label>:
+                              <ion-checkbox [(ngModel)]="cliente.estado"></ion-checkbox>
+                            </ion-item>
+                        
+                      </ion-col>
+                    </ion-row>
+                    <ion-button (click)="guardar()">Guardar</ion-button>
 
+    <!-- <ion-row>
+      <ion-col size="3">
+        <strong>Integer</strong>
+      </ion-col>
+      <ion-col>:
+        {{data.phone}}<ion-icon name="trash" (click)="removeKey('phone')"></ion-icon>
+      </ion-col>
+    </ion-row> -->
+    <ion-row>
+      <ion-col>
+        <strong>Lista de Empleados</strong><ion-icon name="trash" ></ion-icon>
+            <ion-card *ngFor="let item of data; let i = index">
+                <ion-card-header>
+                    <ion-card-title>Cliente {{item.id}}
+                    </ion-card-title>
+                </ion-card-header>
+              <ion-card-content>
+                <p><strong>Nombre</strong>: {{item.nombre}}</p>
+                <p><strong>Cédula</strong>: {{item.cedula}}</p>
+                <p><strong>Tarjet de Credito</strong>: {{item.tarjeta}}</p>
+                <p><strong>Limite de Credito</strong>: {{item.credito}}</p>
+                <p><strong>Tipo de Persona</strong>: {{item.persona}}</p>
+                <p><strong>Estado</strong>: {{item.estado}}</p>
+              </ion-card-content>
+            </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+ 
+ 
+ <!--  <ion-button size="small" (click)="driverUsed()">Get Storage Driver Used</ion-button>
+  <ion-button size="small" (click)="traverseKeys()">Loop through All Stored Keys</ion-button>
+  <ion-button size="small" (click)="listKeys()">Get Stored Keys</ion-button>
+  <ion-button size="small" (click)="getKeyLength()">Get Length Stored Keys</ion-button> -->
+ 
+ 
 </ion-content>
