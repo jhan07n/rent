@@ -11,7 +11,7 @@
  
  
   <ion-grid>
-    <ion-row>
+    <!-- <ion-row>
       <ion-col size="9">
           <ion-item>
               <ion-label position="fixed">inspeccion</ion-label>:
@@ -19,15 +19,17 @@
             </ion-item>
         
       </ion-col>
-    <!--   <ion-col>
+      <ion-col>
        <ion-input type="text"></ion-input> {{data.name}}<ion-icon name="trash" (click)="removeKey('name')"></ion-icon> 
-      </ion-col> -->
-    </ion-row>
+      </ion-col> 
+    </ion-row> -->
     <ion-row>
         <ion-col size="9">
             <ion-item>
                 <ion-label position="fixed">Vehiculo</ion-label>:
-                <ion-input [(ngModel)]="inspeccion.vehiculo"></ion-input>
+                <ion-select [(ngModel)]="inspeccion.vehiculo">
+                  <ion-select-option *ngFor="let item of vdata" value="{{item.id}}">{{item.marcaym}}, {{item.chasis}}</ion-select-option>
+                </ion-select>
               </ion-item>
           
         </ion-col>
@@ -35,8 +37,10 @@
       <ion-row>
           <ion-col size="9">
               <ion-item>
-                  <ion-label position="fixed">Id. Cliente</ion-label>:
-                  <ion-input [(ngModel)]="inspeccion.idcliente"></ion-input>
+                  <ion-label position="fixed">Cliente</ion-label>:
+                  <ion-select [(ngModel)]="inspeccion.idcliente">
+                    <ion-select-option *ngFor="let item of cdata" value="{{item.id}}">{{item.nombre}}</ion-select-option>
+                  </ion-select>
                 </ion-item>
             
           </ion-col>
@@ -54,7 +58,12 @@
               <ion-col size="9">
                   <ion-item>
                       <ion-label position="fixed">Cantidad de Comb.</ion-label>:
-                      <ion-input [(ngModel)]="inspeccion.cancumbus"></ion-input>
+                      <ion-select [(ngModel)]="inspeccion.cancumbus">
+                        <ion-select-option value="1/4">1/4</ion-select-option>
+                        <ion-select-option value="1/2">1/2</ion-select-option>
+                        <ion-select-option value="3/4">3/4</ion-select-option>
+                        <ion-select-option value="FULL">FULL</ion-select-option>
+                      </ion-select>
                     </ion-item>
                 
               </ion-col>
@@ -63,7 +72,10 @@
                 <ion-col size="9">
                     <ion-item>
                         <ion-label position="fixed">Goma de Repuesta</ion-label>:
-                        <ion-input [(ngModel)]="inspeccion.repuesta"></ion-input>
+                        <ion-select [(ngModel)]="inspeccion.repuesta">
+                          <ion-select-option value="Si">Si</ion-select-option>
+                          <ion-select-option value="No">No</ion-select-option>
+                        </ion-select>
                       </ion-item>
                   
                 </ion-col>
@@ -72,7 +84,10 @@
                   <ion-col size="9">
                       <ion-item>
                           <ion-label position="fixed">Gato</ion-label>:
-                          <ion-input [(ngModel)]="inspeccion.gato"></ion-input>
+                          <ion-select [(ngModel)]="inspeccion.gato">
+                             <ion-select-option value="Si">Si</ion-select-option>
+                          <ion-select-option value="No">No</ion-select-option>
+                        </ion-select>
                         </ion-item>
                     
                   </ion-col>
@@ -81,7 +96,14 @@
                     <ion-col size="9">
                         <ion-item>
                             <ion-label position="fixed">Roturas en el Cristal</ion-label>:
-                            <ion-input [(ngModel)]="inspeccion.roturas"></ion-input>
+                            <ion-select multiple="true" [(ngModel)]="inspeccion.roturas">
+                              <ion-select-option value="Derecho">Piloto</ion-select-option>
+                              <ion-select-option value="Izquierdo">Copiloto</ion-select-option>
+                              <ion-select-option value="Derecho trasero">Derecho pasajero</ion-select-option>
+                              <ion-select-option value="Izquierdo trasero">Izquierdo pasajero</ion-select-option>
+                              <ion-select-option value="Frontal">Frontal</ion-select-option>
+                              <ion-select-option value="Tracero">Tracero</ion-select-option>
+                            </ion-select>
                           </ion-item>
                       
                     </ion-col>
@@ -89,18 +111,21 @@
                       <ion-col size="9">
                           <ion-item>
                               <ion-label position="fixed">Estado de las Gomas</ion-label>:
+                              <ion-select multiple="true" [(ngModel)]="inspeccion.estgomas">
+                                <ion-select-option value="Goma1 bien" value="Goma1">Goma 1</ion-select-option>
+                                <ion-select-option  value="Goma2 bien">Goma 2</ion-select-option>
+                                <ion-select-option  value="Goma3 bien">Goma 3</ion-select-option>
+                                <ion-select-option  value="Goma4 bien">Goma 4</ion-select-option>
+                              </ion-select>
                             </ion-item>
-                            <ion-checkbox value="Goma 1" [(ngModel)]="inspeccion.estgomas.goma1">Goma 1</ion-checkbox>
-                            <ion-checkbox  [(ngModel)]="inspeccion.estgomas.goma2">Goma 2</ion-checkbox>
-                            <ion-checkbox  [(ngModel)]="inspeccion.estgomas.goma3">Goma 3</ion-checkbox>
-                            <ion-checkbox  [(ngModel)]="inspeccion.estgomas.goma4">Goma 4</ion-checkbox>
+                           
                         
                       </ion-col>
                     </ion-row> <ion-row>
                       <ion-col size="9">
                           <ion-item>
                               <ion-label position="fixed">Fecha</ion-label>:
-                              <ion-datetime display-format="MM/YYYY" picker-format="MMMM YYYY" [(ngModel)]="inspeccion.fecha"></ion-datetime>
+                              <ion-datetime display-format="DD/MM/YYYY" picker-format="DDDD MMMM YYYY" [(ngModel)]="inspeccion.fecha"></ion-datetime>
                             </ion-item>
                         
                       </ion-col>
@@ -109,7 +134,7 @@
                           <ion-item>
                               <ion-label position="fixed">Empleado</ion-label>:
                               <ion-select [(ngModel)]="inspeccion.empleado" okText="Okay" cancelText="Dismiss">
-                                <ion-select-option value="Persona Física">Prueba</ion-select-option>
+                                <ion-select-option *ngFor="let item of edata" value="{{item.id}}">{{item.nombre}}</ion-select-option>
                                
                               </ion-select>
                             </ion-item>
@@ -143,7 +168,7 @@
                     </ion-card-title>
                 </ion-card-header>
               <ion-card-content>
-                <p><strong>inspeccion</strong>: {{item.inspeccion}}</p>
+               
                 <p><strong>Vehiculo</strong>: {{item.vehiculo}}</p>
                 <p><strong>Id. Cliente</strong>: {{item.idcliente}}</p>
                 <p><strong>Id. Rallones</strong>: {{item.rallones}}</p>

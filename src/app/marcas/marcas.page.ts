@@ -11,6 +11,7 @@ export class MarcasPage implements OnInit {
   marca={
     id:'',
     descripcion:'',
+    modelo:'',
     estado:''
   } 
   idm:any;

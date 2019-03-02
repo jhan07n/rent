@@ -16,7 +16,9 @@
         <ion-col size="9">
             <ion-item>
                 <ion-label position="fixed">Empleado</ion-label>:
-                <ion-input [(ngModel)]="renta.empleado"></ion-input>
+                <ion-select [(ngModel)]="renta.empleado">
+                  <ion-select-option *ngFor="let item of edata" value="{{item.id}}">{{item.nombre}}</ion-select-option>
+                </ion-select>
               </ion-item>
           
         </ion-col>
@@ -25,7 +27,9 @@
           <ion-col size="9">
               <ion-item>
                   <ion-label position="fixed">Vehiculo</ion-label>:
-                  <ion-input [(ngModel)]="renta.vehiculo"></ion-input>
+                  <ion-select [(ngModel)]="renta.vehiculo">
+                    <ion-select-option *ngFor="let item of vdata" value="{{item.id}}">{{item.marcaym}}, {{item.chasis}}</ion-select-option>
+                  </ion-select>
                 </ion-item>
             
           </ion-col>
@@ -34,7 +38,9 @@
             <ion-col size="9">
                 <ion-item>
                     <ion-label position="fixed">Cliente</ion-label>:
-                    <ion-input [(ngModel)]="renta.cliente"></ion-input>
+                    <ion-select [(ngModel)]="renta.cliente">
+                      <ion-select-option *ngFor="let item of cdata" value="{{item.id}}">{{item.nombre}}</ion-select-option>
+                    </ion-select>
                   </ion-item>
               
             </ion-col>
@@ -43,7 +49,7 @@
               <ion-col size="9">
                   <ion-item>
                       <ion-label position="fixed">Fecha de renta</ion-label>:
-                      <ion-datetime display-format="MM/YYYY" picker-format="MMMM YYYY" [(ngModel)]="renta.fechai"></ion-datetime>
+                      <ion-datetime display-format="DD/MM/YYYY" picker-format="DDDD MMMM YYYY" [(ngModel)]="renta.fechai"></ion-datetime>
                     </ion-item>
                 
               </ion-col>
@@ -52,7 +58,7 @@
                 <ion-col size="9">
                     <ion-item>
                         <ion-label position="fixed">Fecha Devolución</ion-label>:
-                        <ion-datetime display-format="MM/YYYY" picker-format="MMMM YYYY" [(ngModel)]="renta.fechaf"></ion-datetime>
+                        <ion-datetime display-format="DD/MM/YYYY" picker-format="DDDD MMMM YYYY" [(ngModel)]="renta.fechaf"></ion-datetime>
                       </ion-item>
                   
                 </ion-col>
@@ -61,7 +67,7 @@
                   <ion-col size="9">
                       <ion-item>
                           <ion-label position="fixed">Monto x dia</ion-label>:
-                          <ion-input [(ngModel)]="renta.monto"></ion-input>
+                          <ion-input [(ngModel)]="renta.monto" value="US$ .00"></ion-input>
                         </ion-item>
                     
                   </ion-col>
@@ -78,7 +84,10 @@
                       <ion-col size="9">
                           <ion-item>
                               <ion-label position="fixed">Comentario</ion-label>:
-                              <ion-input [(ngModel)]="renta.comentario"></ion-input>
+                              <ion-select [(ngModel)]="renta.comentario">
+                                <ion-select-option value="Entrega">Entrega</ion-select-option>
+                                <ion-select-option value="Devolución">Devolución</ion-select-option>
+                              </ion-select>
                             </ion-item>
                         
                       </ion-col>
@@ -103,10 +112,10 @@
     </ion-row> -->
     <ion-row>
       <ion-col>
-        <strong>inspecciones Hechas</strong><ion-icon (click)="removeKey('inspeccion')" name="trash" ></ion-icon>
+        <strong>Historial Renta y Devolución</strong><ion-icon (click)="removeKey('inspeccion')" name="trash" ></ion-icon>
             <ion-card *ngFor="let item of data; let i = index">
                 <ion-card-header>
-                    <ion-card-title>inspeccion {{item.id}}
+                    <ion-card-title>{{item.comentario}}
                     </ion-card-title>
                 </ion-card-header>
               <ion-card-content>

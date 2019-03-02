@@ -1,13 +1,15 @@
 import { Component } from '@angular/core';
 import { Storage } from '@ionic/storage'
 import { version } from 'punycode';
+import { AngularDelegate } from '@ionic/angular';
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
-  
+  mid:any;
+  mdata=[];
   id:any;
   
    
@@ -18,10 +20,9 @@ export class HomePage {
   motor: '', 
   placa: '',  
   tipo: '',
-  marca: '', 
-  modelo: '',  
+  marcaym: '', 
   combustible: '',
-  estado: ''
+  estado: true,
   }
   data=[];
 
@@ -29,11 +30,11 @@ export class HomePage {
     private storage: Storage
   ) {
     /* Usar solo en caso de emergencias XDD
-    
-    this.storage.clear() 
+
+     this.storage.clear() 
     
     */
-
+  
     this.id=1;
     this.storage.forEach((value: any, key: any, iterationNumber: Number) => {
       
@@ -52,6 +53,25 @@ export class HomePage {
           }
           })
         })
+
+        this.mid=1;
+   this.storage.forEach((value: any, key: any, iterationNumber: Number) => {
+     
+     this.storage.length().then((keysLength: Number) => {
+       console.log("Total Keys " + keysLength);
+       for(let i :any =0; i <= keysLength; i++){
+         /* console.log("esto es for " + i + " Esto es k "+k + " Estoy es key"+ key) */
+         if (key==="m"+i){
+           this.getValue(i);
+          
+           this.storage.get("m"+i).then((val=>{
+             this.mdata.push(val)
+             this.mid=i+1
+           }))
+          }
+         }
+         })
+       })
       }
 
  // set a key/value

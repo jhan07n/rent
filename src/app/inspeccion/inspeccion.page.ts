@@ -7,6 +7,12 @@ import { Storage } from '@ionic/storage';
   styleUrls: ['./inspeccion.page.scss'],
 })
 export class InspeccionPage implements OnInit {
+  eid:any;
+  edata=[];
+  cid:any;
+  cdata=[];
+  vid:any;
+  vdata=[];
   id:any;
   data=[];
   inspeccion={
@@ -18,12 +24,7 @@ export class InspeccionPage implements OnInit {
     repuesta:'',
     gato:'',
     roturas:'',
-    estgomas:{
-      goma1:'',
-      goma2:'',
-      goma3:'',
-      goma4:''
-    },
+    estgomas:'',
     fecha:'',
     empleado:'',
     estado:''
@@ -48,6 +49,70 @@ export class InspeccionPage implements OnInit {
           }
           })
         })
+
+
+         //para buscar vehiculos
+      this.vid=1;
+      this.storage.forEach((value: any, key: any, iterationNumber: Number) => {
+      
+        this.storage.length().then((keysLength: Number) => {
+          console.log("Total Keys " + keysLength);
+          for(let i :any =0; i <= keysLength; i++){
+            /* console.log("esto es for " + i + " Esto es k "+k + " Estoy es key"+ key) */
+            if (key==="v"+i){
+              this.getValue(i);
+             
+              this.storage.get("v"+i).then((val=>{
+                this.vdata.push(val)
+                this.vid=i+1
+              }))
+             }
+            }
+            })
+          })
+
+
+          //para buscar clientes
+          this.cid=1;
+  this.storage.forEach((value: any, key: any, iterationNumber: Number) => {
+    
+    this.storage.length().then((keysLength: Number) => {
+      console.log("Total Keys " + keysLength);
+      for(let i :any =0; i <= keysLength; i++){
+        /* console.log("esto es for " + i + " Esto es k "+k + " Estoy es key"+ key) */
+        if (key==="c"+i){
+          this.getValue(i);
+         
+          this.storage.get("c"+i).then((val=>{
+            this.cdata.push(val)
+            this.cid=i+1
+          }))
+         }
+        }
+        })
+    })
+
+    //buscar empleados
+    this.eid=1;
+    this.storage.forEach((value: any, key: any, iterationNumber: Number) => {
+      
+      this.storage.length().then((keysLength: Number) => {
+        console.log("Total Keys " + keysLength);
+        for(let i :any =0; i <= keysLength; i++){
+          /* console.log("esto es for " + i + " Esto es k "+k + " Estoy es key"+ key) */
+          if (key==="u"+i){
+            this.getValue(i);
+           
+            this.storage.get("u"+i).then((val=>{
+              this.edata.push(val)
+              this.eid=i+1
+            }))
+           }
+          }
+          })
+        })
+
+      
       }
 
  // set a key/value

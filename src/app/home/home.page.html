@@ -62,13 +62,15 @@
             <ion-row>
                 <ion-col size="9">
                     <ion-item>
-                        <ion-label position="fixed">marca</ion-label>:
-                        <ion-input [(ngModel)]="vehiculo.marca"></ion-input>
+                        <ion-label position="fixed">Marca y Modelo</ion-label>:
+                        <ion-select [(ngModel)]="vehiculo.marcaym">
+                          <ion-select-option *ngFor="let item of mdata" value="{{item.descripcion}} {{item.modelo}}">{{item.descripcion}}, {{item.modelo}}</ion-select-option>
+                        </ion-select>
                       </ion-item>
                   
                 </ion-col>
               </ion-row>
-              <ion-row>
+              <!-- <ion-row>
                   <ion-col size="9">
                       <ion-item>
                           <ion-label position="fixed">modelo</ion-label>:
@@ -76,7 +78,7 @@
                         </ion-item>
                     
                   </ion-col>
-                </ion-row>
+                </ion-row> -->
                 <ion-row>
                     <ion-col size="9">
                         <ion-item>
@@ -118,8 +120,7 @@
                 <p><strong>Motor</strong>: {{item.motor}}</p>
                 <p><strong>Placa</strong>: {{item.placa}}</p>
                 <p><strong>Tipo</strong>: {{item.tipo}}</p>
-                <p><strong>Marca</strong>: {{item.marca}}</p>
-                <p><strong>Modelo</strong>: {{item.modelo}}</p>
+                <p><strong>Marca y Modelo</strong>: {{item.marcaym}}</p>
                 <p><strong>Combustible</strong>: {{item.combustible}}</p>
                 <p><strong>Estado</strong>: {{item.estado}}</p>
               </ion-card-content>

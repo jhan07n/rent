@@ -33,7 +33,11 @@
             <ion-col size="9">
                 <ion-item>
                     <ion-label position="fixed">Tanda Laboral</ion-label>:
-                    <ion-input [(ngModel)]="usuario.tanda"></ion-input>
+                    <ion-select [(ngModel)]="usuario.tanda">
+                      <ion-select-option value="M">Matutina</ion-select-option>
+                      <ion-select-option value="D">Diurna</ion-select-option>
+                      <ion-select-option value="N">Nocturna</ion-select-option>
+                    </ion-select>
                   </ion-item>
               
             </ion-col>
@@ -51,7 +55,7 @@
                 <ion-col size="9">
                     <ion-item>
                         <ion-label position="fixed">Fecha Ingreso</ion-label>:
-                        <ion-datetime display-format="MM/YYYY" picker-format="MMMM YYYY" [(ngModel)]="usuario.ingreso"></ion-datetime>
+                        <ion-datetime display-format="DD/MM/YYYY" picker-format="DDDD MMMM YYYY" [(ngModel)]="usuario.ingreso"></ion-datetime>
                       </ion-item>
                   
                 </ion-col>
