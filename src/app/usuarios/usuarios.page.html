@@ -81,7 +81,8 @@
     </ion-row> -->
     <ion-row>
       <ion-col>
-        <strong>Lista de Empleados</strong><ion-icon name="trash" ></ion-icon>
+        <strong>Lista de Empleados</strong>  <ion-icon (click)="prit()" size="large" name="print" ></ion-icon>
+        <div id="printable-area">
             <ion-card *ngFor="let item of data; let i = index">
                 <ion-card-header>
                     <ion-card-title>Usuario {{item.id}}
@@ -96,6 +97,7 @@
                 <p><strong>Estado</strong>: {{item.estado}}</p>
               </ion-card-content>
             </ion-card>
+            </div>
       </ion-col>
     </ion-row>
   </ion-grid>

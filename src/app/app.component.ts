@@ -34,12 +34,12 @@ export class AppComponent {
     {
       title: 'Vehiculos',
       url: '/home',
-      icon: 'home'
+      icon: 'car'
     },
     {
       title: 'Inspeccion',
       url: '/inspeccion',
-      icon: 'people'
+      icon: 'checkmark-circle-outline'
     },
     {
       title: 'Renta Y devolucion',
@@ -62,4 +62,5 @@ export class AppComponent {
       this.splashScreen.hide();
     });
   }
+  
 }

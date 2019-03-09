@@ -1,13 +1,28 @@
 import { Component } from '@angular/core';
 import { Storage } from '@ionic/storage'
-import { version } from 'punycode';
-import { AngularDelegate } from '@ionic/angular';
+
+
+//file-----------------------
+
+import { LoadingController } from '@ionic/angular';
+import * as jsPDF from 'jspdf';
+import domtoimage from 'dom-to-image';
+import { File, IWriteOptions } from '@ionic-native/file/ngx';
+import { FileOpener } from '@ionic-native/file-opener/ngx';
+
+//end import file------------------------------
+
+
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
+  loading: any;
+
+
+
   mid:any;
   mdata=[];
   id:any;
@@ -27,7 +42,10 @@ export class HomePage {
   data=[];
 
   constructor(
-    private storage: Storage
+    private storage: Storage,
+    public loadingCtrl: LoadingController,
+    private file: File,
+    private fileOpener: FileOpener
   ) {
     /* Usar solo en caso de emergencias XDD
 
@@ -74,6 +92,8 @@ export class HomePage {
        })
       }
 
+          
+
  // set a key/value
  setValue(key: string, value: any) {
     
@@ -101,6 +121,32 @@ guardar(){
  this.setValue(this.id,this.vehiculo)
  this.data.push(this.vehiculo)
  }
+
+ getfolder(e) {
+  var files = e.target.files;
+  var path = files[0].webkitRelativePath;
+  var Folder = path.split("/");
+  alert(Folder[0]);
+  this.exportPdf(Folder[0]);
+}
+
+prit(){
+  var content = document.getElementById("printable-area").innerHTML;
+    var mywindow = window.open('', 'Vehiculos', 'height=600,width=800');
+
+    mywindow.document.write('<html><head><title>Vehiculos</title>');
+    mywindow.document.write('</head><body >');
+    mywindow.document.write(content);
+    mywindow.document.write('</body></html>');
+
+    mywindow.document.close();
+    mywindow.focus()
+    mywindow.print();
+    mywindow.close();
+    return true;
+}
+
+
  }
   
 

@@ -51,7 +51,8 @@
     </ion-row> -->
     <ion-row>
       <ion-col>
-        <strong>Marcas Disponibles</strong><ion-icon (click)="removeKey('vehiculo')" name="trash" ></ion-icon>
+        <strong>Marcas Disponibles</strong>  <ion-icon (click)="prit()" size="large" name="print" ></ion-icon>
+        <div id="printable-area">
             <ion-card *ngFor="let item of data; let i = index">
                 <ion-card-header>
                     <ion-card-title>Marca {{item.id}}
@@ -63,6 +64,7 @@
                 <p><strong>Estado</strong>: {{item.estado}}</p>
               </ion-card-content>
             </ion-card>
+            </div>
       </ion-col>
     </ion-row>
   </ion-grid>

@@ -146,4 +146,20 @@ guardar(){
   ngOnInit() {
   }
 
+  prit(){
+    var content = document.getElementById("printable-area").innerHTML;
+      var mywindow = window.open('', 'Inspeccion', 'height=600,width=800');
+  
+      mywindow.document.write('<html><head><title>Inspeccion</title>');
+      mywindow.document.write('</head><body >');
+      mywindow.document.write(content);
+      mywindow.document.write('</body></html>');
+  
+      mywindow.document.close();
+      mywindow.focus()
+      mywindow.print();
+      mywindow.close();
+      return true;
+  }
+
 }
