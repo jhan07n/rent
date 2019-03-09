@@ -2,15 +2,6 @@ import { Component } from '@angular/core';
 import { Storage } from '@ionic/storage'
 
 
-//file-----------------------
-
-import { LoadingController } from '@ionic/angular';
-import * as jsPDF from 'jspdf';
-import domtoimage from 'dom-to-image';
-import { File, IWriteOptions } from '@ionic-native/file/ngx';
-import { FileOpener } from '@ionic-native/file-opener/ngx';
-
-//end import file------------------------------
 
 
 @Component({
@@ -42,10 +33,7 @@ export class HomePage {
   data=[];
 
   constructor(
-    private storage: Storage,
-    public loadingCtrl: LoadingController,
-    private file: File,
-    private fileOpener: FileOpener
+    private storage: Storage
   ) {
     /* Usar solo en caso de emergencias XDD
 
@@ -122,13 +110,7 @@ guardar(){
  this.data.push(this.vehiculo)
  }
 
- getfolder(e) {
-  var files = e.target.files;
-  var path = files[0].webkitRelativePath;
-  var Folder = path.split("/");
-  alert(Folder[0]);
-  this.exportPdf(Folder[0]);
-}
+
 
 prit(){
   var content = document.getElementById("printable-area").innerHTML;
