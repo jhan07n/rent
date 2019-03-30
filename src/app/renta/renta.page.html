@@ -67,7 +67,7 @@
                   <ion-col size="9">
                       <ion-item>
                           <ion-label position="fixed">Monto x dia</ion-label>:
-                          <ion-input [(ngModel)]="renta.monto" value="US$ .00"></ion-input>
+                          <ion-input onkeypress="return event.charCode >= 48 && event.charCode <= 57" [(ngModel)]="renta.monto" value="US$ .00"></ion-input>
                         </ion-item>
                     
                   </ion-col>
@@ -76,7 +76,7 @@
                     <ion-col size="9">
                         <ion-item>
                             <ion-label position="fixed">Cantidad de Dia</ion-label>:
-                            <ion-input [(ngModel)]="renta.dias"></ion-input>
+                            <ion-input onkeypress="return event.charCode >= 48 && event.charCode <= 57" [(ngModel)]="renta.dias"></ion-input>
                           </ion-item>
                       
                     </ion-col>

@@ -82,6 +82,7 @@ guardar(){
       mywindow.document.write('<html><head><title>Empleados</title>');
       mywindow.document.write('</head><body >');
       mywindow.document.write(content);
+      mywindow.document.write('---------------------------------------------------');
       mywindow.document.write('</body></html>');
   
       mywindow.document.close();

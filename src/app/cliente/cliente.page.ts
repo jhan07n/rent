@@ -8,7 +8,7 @@ import { Storage } from '@ionic/storage';
 })
 export class ClientePage implements OnInit {
   id:any;
-  data=[];
+  data:any[];
   cliente={
     id:'',
     nombre:'',
@@ -18,7 +18,8 @@ export class ClientePage implements OnInit {
     persona:'',
     estado:''
   }
-  constructor(public storage:Storage) { 
+  constructor(public storage:Storage) {
+    this.data=[] 
   this.id=1;
   this.storage.forEach((value: any, key: any, iterationNumber: Number) => {
     
@@ -69,12 +70,14 @@ guardar(){
   }
 
   prit(){
+    if (this.data){
     var content = document.getElementById("printable-area").innerHTML;
       var mywindow = window.open('', 'Clientes', 'height=600,width=800');
   
       mywindow.document.write('<html><head><title>Clientes</title>');
       mywindow.document.write('</head><body >');
       mywindow.document.write(content);
+      mywindow.document.write('---------------------------------------------------');
       mywindow.document.write('</body></html>');
   
       mywindow.document.close();
@@ -82,6 +85,8 @@ guardar(){
       mywindow.print();
       mywindow.close();
       return true;
+    }
+    
   }
 
 }

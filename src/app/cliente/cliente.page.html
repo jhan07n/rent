@@ -24,7 +24,7 @@
           <ion-col size="9">
               <ion-item>
                   <ion-label position="fixed">Cédula</ion-label>:
-                  <ion-input [(ngModel)]="cliente.cedula"></ion-input>
+                  <ion-input onkeypress="return event.charCode >= 48 && event.charCode <= 57" [(ngModel)]="cliente.cedula"></ion-input>
                 </ion-item>
             
           </ion-col>
@@ -33,7 +33,7 @@
             <ion-col size="9">
                 <ion-item>
                     <ion-label position="fixed">No. TC</ion-label>:
-                    <ion-input [(ngModel)]="cliente.tarjeta"></ion-input>
+                    <ion-input onkeypress="return event.charCode >= 48 && event.charCode <= 57" [(ngModel)]="cliente.tarjeta"></ion-input>
                   </ion-item>
               
             </ion-col>
@@ -42,7 +42,7 @@
               <ion-col size="9">
                   <ion-item>
                       <ion-label position="fixed">Limite de Cred.</ion-label>:
-                      <ion-input value="RD$ " [(ngModel)]="cliente.credito"></ion-input>
+                      <ion-input value="RD$ " onkeypress="return event.charCode >= 48 && event.charCode <= 57" [(ngModel)]="cliente.credito"></ion-input>
                     </ion-item>
                 
               </ion-col>
